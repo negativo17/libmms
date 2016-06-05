@@ -26,7 +26,7 @@ your media applications.
 
 %package devel
 Summary:       Development package for %{name}
-Requires:      %{name} = %{version}-%{release}, pkgconfig
+Requires:      %{name}%{?_isa} = %{version}-%{release}, pkgconfig
 
 %description devel
 This package contains development files for %{name}.
