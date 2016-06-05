@@ -40,6 +40,9 @@ This package contains development files for %{name}.
 %patch5 -p1
 %patch6 -p1
 
+# rpmlint fix
+chmod -x ChangeLog
+
 %build
 export CFLAGS="%{optflags} -Wno-pointer-sign -Werror"
 autoreconf -vif
