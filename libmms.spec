@@ -40,8 +40,9 @@ This package contains development files for %{name}.
 %patch5 -p1
 %patch6 -p1
 
-# rpmlint fix
+# rpmlint fixes
 chmod -x ChangeLog
+find . -name "*.c" -exec chmod -x {} \;
 
 %build
 export CFLAGS="%{optflags}"
