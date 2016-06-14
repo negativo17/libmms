@@ -44,7 +44,7 @@ This package contains development files for %{name}.
 chmod -x ChangeLog
 
 %build
-export CFLAGS="%{optflags} -Wno-pointer-sign -Werror"
+export CFLAGS="%{optflags}"
 autoreconf -vif
 %configure --disable-dependency-tracking --disable-static
 make %{?_smp_mflags} 
