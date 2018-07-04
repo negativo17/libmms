@@ -1,6 +1,6 @@
 Name:       libmms
 Version:    0.6.4
-Release:    4%{?dist}
+Release:    5%{?dist}
 Summary:    Library for Microsoft Media Server (MMS) streaming protocol
 License:    LGPLv2+
 URL:        http://www.sf.net/projects/libmms
@@ -32,13 +32,7 @@ Requires:      %{name}%{?_isa} = %{version}-%{release}, pkgconfig
 This package contains development files for %{name}.
 
 %prep
-%setup -q
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
+%autosetup -p1
 
 # rpmlint fixes
 chmod -x ChangeLog
@@ -55,12 +49,9 @@ make %{?_smp_mflags}
 %make_install
 find %{buildroot}%{_libdir}/ -name "*.la" -delete
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig 
+%ldconfig_scriptlets
 
 %files
-%{!?_licensedir:%global license %%doc}
 %license COPYING.LIB
 %doc AUTHORS ChangeLog README*
 %{_libdir}/%{name}.so.*
@@ -71,6 +62,9 @@ find %{buildroot}%{_libdir}/ -name "*.la" -delete
 %{_libdir}/pkgconfig/%{name}.pc
 
 %changelog
+* Wed Jul 04 2018 Simone Caronni <negativo17@gmail.com> - 0.6.4-5
+- Update SPEC file.
+
 * Sun Jun 05 2016 Simone Caronni <negativo17@gmail.com> - 0.6.4-4
 - Update to latest git patches.
 - Clean up SPEC file.
