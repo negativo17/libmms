@@ -1,12 +1,13 @@
 Name:       libmms
 Version:    0.6.4
-Release:    5%{?dist}
+Release:    6%{?dist}
 Summary:    Library for Microsoft Media Server (MMS) streaming protocol
 License:    LGPLv2+
 URL:        http://www.sf.net/projects/libmms
 
 BuildRequires:  autoconf
 BuildRequires:  automake
+BuildRequires:  gcc
 BuildRequires:  libtool
 
 Source0:    http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -62,6 +63,9 @@ find %{buildroot}%{_libdir}/ -name "*.la" -delete
 %{_libdir}/pkgconfig/%{name}.pc
 
 %changelog
+* Thu Sep 20 2018 Simone Caronni <negativo17@gmail.com> - 0.6.4-6
+- Add GCC build requirement.
+
 * Wed Jul 04 2018 Simone Caronni <negativo17@gmail.com> - 0.6.4-5
 - Update SPEC file.
 
